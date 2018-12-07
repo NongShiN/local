@@ -18,8 +18,9 @@
 
             #full-slider {
             position: relative;
-            width: 800px;
-            height: 780px;
+            width: 40%;
+            height: 70%;
+            margin-left: 100;
             margin: 0 auto;
             }
 
@@ -27,12 +28,12 @@
             position: absolute;
             top: 0;
             left: 0;
-            width: 800px;
-            height: 780px;
+            width: 100%;
+            height: 99%;
             visibility: hidden;
             }
 
-            #full-slider .slide-panel.active {
+            #full-slider .slide-panel.active1{
             visibility: visible;
             }
 
@@ -70,7 +71,7 @@
             /* styles below are only for this example */
 
             #full-slider .slide-panel {
-            background-color: #555;
+            background-color: rgba(0,0,0,0.8);
             color: #DDD;
             }
 
@@ -88,7 +89,7 @@
           <div id="full-slider-wrapper">
             <div id="full-slider">
 
-              <div class="slide-panel active">
+              <div class="slide-panel active1">
                 <center>
                   <img src="0000005931360004065515812.jpg" width="30%" height="60%" border="10">
                     <br>
@@ -160,14 +161,14 @@
             }
 
             // slide out the current panel, then remove the active class
-            $slider.children('.slide-panel.active').animate({
+            $slider.children('.slide-panel.active1').animate({
             left: currPos
             }, 500, function() {
-            $(this).removeClass('active');
+            $(this).removeClass('active1');
             });
 
             // slide in the next panel after adding the active class
-            $( $sliderPanels[newPanel] ).css('left', nextPos).addClass('active').animate({
+            $( $sliderPanels[newPanel] ).css('left', nextPos).addClass('active1').animate({
             left: 0
             }, 500 );
             }
