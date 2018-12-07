@@ -1,0 +1,38 @@
+<html>
+<head>
+    <title>why</title>
+    <meta charset="utf-8" />
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {            
+                $.ajax({
+                    url: "./test.txt",
+                    dataType: "text",
+                    success: function (data) {                 
+                            var text = $('#newCheckText').val();
+                            var str = data;
+                            var str_array = str.split('\n');
+                            for (var i = 0; i < str_array.length; i++) {
+                                // Trim the excess whitespace.
+                                str_array[i] = str_array[i].replace(/^\s*/, "").replace(/\s*$/, "");
+                                // Add additional code here, such as:
+                                //console.log(str_array[i]);
+
+                                //alert(str_array[i]);
+
+                                $('#checkboxes').append('<input type="checkbox"  class="checkBoxClass" /> ' + str_array[i] + '<br />');
+                            }
+                    }                   
+                });
+                $("#ckbCheckAll").click(function () {
+                    $(".checkBoxClass").prop('checked', $(this).prop('checked'));
+                });
+        });
+    </script>
+</head>
+<body>
+    <div id="checkboxes">
+        <input type="checkbox" id="ckbCheckAll" class="checkBoxClass"/> Select All<br />        
+    </div>
+</body>
+</html>
